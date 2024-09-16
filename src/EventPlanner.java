@@ -19,10 +19,9 @@ public class EventPlanner {
 
 		EventPanel eventPanel = new EventPanel(new Deadline("Class", new Date()));
 		eventListPanel.addEventPanel(eventPanel);
-		eventListPanel.addEventPanel(eventPanel);
-		eventListPanel.addEventPanel(eventPanel);
-		eventListPanel.addEventPanel(eventPanel);
 
 		frame.add(eventListPanel);
+		frame.revalidate();
+		frame.repaint();
 	}
 }
