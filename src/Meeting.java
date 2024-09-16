@@ -39,4 +39,8 @@ public class Meeting extends Event implements Completable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
+	public String toString() {
+		return getName() + " - " + getDateTime() + " - " + getDuration()/60000 + " - " + getEndDateTime() + " - " + getLocation() + " - " + isComplete();
+	}
 }

@@ -14,11 +14,18 @@ public class EventPanel extends JPanel {
 		this.setLayout(new BorderLayout());
 
 		eventLabel = new JLabel();
-		eventLabel.setText(event.getName());
+		eventLabel.setText(event.toString());
 		this.add(eventLabel, BorderLayout.CENTER);
 
 		completeButton = new JButton("Complete");
-		//completeButton.addActionListener(new ActionListener() {})
+		completeButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				event.complete();
+				eventLabel.setText(event.toString());
+			}
+		});
+
 		this.add(completeButton, BorderLayout.EAST);
 	}
 

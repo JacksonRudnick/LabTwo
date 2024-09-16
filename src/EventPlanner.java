@@ -15,10 +15,15 @@ public class EventPlanner {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
-		EventListPanel eventListPanel = new EventListPanel();
+		EventListPanel eventListPanel = new EventListPanel(frame);
 
-		EventPanel eventPanel = new EventPanel(new Deadline("Class", new Date()));
-		eventListPanel.addEventPanel(eventPanel);
+		EventPanel classPanel = new EventPanel(new Deadline("Class", new Date()));
+		eventListPanel.addEventPanel(classPanel);
+
+		Date time = new Date();
+		time.setTime(time.getTime() + 1 * 60 * 60 * 1000);
+		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", new Date(), time, "School"));
+		eventListPanel.addEventPanel(meetingPanel);
 
 		frame.add(eventListPanel);
 		frame.revalidate();

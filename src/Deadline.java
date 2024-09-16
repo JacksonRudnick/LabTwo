@@ -15,4 +15,8 @@ public class Deadline extends Event implements Completable {
 	public boolean isComplete() {
 		return complete;
 	}
+
+	public String toString() {
+		return getName() + " - " + getDateTime() + " - " + isComplete();
+	}
 }

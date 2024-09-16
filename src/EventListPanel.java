@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class EventListPanel extends JPanel {
@@ -11,8 +13,9 @@ public class EventListPanel extends JPanel {
 	JComboBox eventComboBox;
 	JCheckBox filterDisplay;
 	JButton addEventButton;
+	AddEventModal addEventModal;
 
-	EventListPanel() {
+	EventListPanel(JFrame frame) {
 		//init array
 		events = new ArrayList<>();
 
@@ -35,7 +38,12 @@ public class EventListPanel extends JPanel {
 		controlPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 		addEventButton = new JButton("Add Event");
-		//addEventButton.addActionListener(e -> {})
+		addEventButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addEventModal = new AddEventModal(frame);
+			}
+		});
 		controlPanel.add(addEventButton);
 
 		eventComboBox = new JComboBox();
