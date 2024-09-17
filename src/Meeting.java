@@ -23,8 +23,9 @@ public class Meeting extends Event implements Completable {
 		return endDateTime;
 	}
 
+	//returns minutes
 	public int getDuration() {
-		return (int) (endDateTime.toString() - getDateTime().toString());
+		return ((endDateTime.getHour()*60 - getDateTime().getHour()*60) + (endDateTime.getMinute() - getDateTime().getMinute()));
 	}
 
 	public String getLocation() {
@@ -40,6 +41,6 @@ public class Meeting extends Event implements Completable {
 	}
 
 	public String toString() {
-		return getName() + " - " + getDateTime() + " - " + getDuration()/60000 + " - " + getEndDateTime() + " - " + getLocation() + " - " + isComplete();
+		return getName() + " - " + getDateTime() + " - " + getDuration() + " - " + getEndDateTime() + " - " + getLocation() + " - " + isComplete();
 	}
 }
