@@ -1,9 +1,9 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Deadline extends Event implements Completable {
 	private boolean complete;
 
-	public Deadline(String name, Date dateTime) {
+	public Deadline(String name, LocalDateTime dateTime) {
 		super(name, dateTime);
 		complete = false;
 	}

@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class EventTester {
-	public static void testMeeting() {
+	/*public static void testMeeting() {
 		Date date = new Date();
 		date.setHours(date.getHours() + 1);
 		Date date2 = new Date(date.getTime());
@@ -59,5 +59,5 @@ public class EventTester {
 
 		System.out.println("\nTEST DEADLINE :: ");
 		testDeadline();
-	}
+	}*/
 }

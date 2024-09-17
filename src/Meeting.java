@@ -1,11 +1,11 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Meeting extends Event implements Completable {
-	private Date endDateTime;
+	private LocalDateTime endDateTime;
 	private String location;
 	private boolean complete;
 
-	public Meeting(String name, Date startDateTime, Date endDateTime, String location) {
+	public Meeting(String name, LocalDateTime startDateTime, LocalDateTime endDateTime, String location) {
 		super(name, startDateTime);
 		this.endDateTime = endDateTime;
 		this.location = location;
@@ -19,20 +19,19 @@ public class Meeting extends Event implements Completable {
 		return complete;
 	}
 
-	public Date getEndDateTime() {
+	public LocalDateTime getEndDateTime() {
 		return endDateTime;
 	}
 
-	//in milliseconds (divide by 60000 to get minutes)
 	public int getDuration() {
-		return (int) (endDateTime.getTime() - getDateTime().getTime());
+		return (int) (endDateTime.toString() - getDateTime().toString());
 	}
 
 	public String getLocation() {
 		return location;
 	}
 
-	public void setEndDateTime(Date endDateTime) {
+	public void setEndDateTime(LocalDateTime endDateTime) {
 		this.endDateTime = endDateTime;
 	}
 

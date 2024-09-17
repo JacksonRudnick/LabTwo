@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class EventPlanner {
 	public static void addDefaultEvents(EventPanel events) {
@@ -17,12 +17,11 @@ public class EventPlanner {
 
 		EventListPanel eventListPanel = new EventListPanel(frame);
 
-		EventPanel classPanel = new EventPanel(new Deadline("Class", new Date()));
+		LocalDateTime time = LocalDateTime.now();
+		EventPanel classPanel = new EventPanel(new Deadline("Class", time));
 		eventListPanel.addEventPanel(classPanel);
 
-		Date time = new Date();
-		time.setTime(time.getTime() + 1 * 60 * 60 * 1000);
-		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", new Date(), time, "School"));
+		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", time, time.plusHours(1), "School"));
 		eventListPanel.addEventPanel(meetingPanel);
 
 		frame.add(eventListPanel);
