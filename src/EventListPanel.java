@@ -1,5 +1,5 @@
 import javax.swing.*;
-import javax.swing.border.Border;
+import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,7 +41,7 @@ public class EventListPanel extends JPanel {
 		addEventButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				addEventModal = new AddEventModal(frame);
+				addEventModal = new AddEventModal();
 			}
 		});
 		controlPanel.add(addEventButton);

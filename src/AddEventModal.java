@@ -2,15 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AddEventModal extends JDialog {
-	AddEventModal(JFrame frame) {
-		super(frame, "Add Event", true);
-		this.setSize(400, 300);
-		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-
-		JPanel panel = new JPanel();
-		this.add(panel);
-	}
-
-
+    AddEventModal() {
+        setTitle("Add Event");
+        setSize(400, 400);
+        setLayout(new GridLayout(4, 2));
+        add(new JLabel("Event Name"));
+        add(new JTextField());
+        add(new JLabel("Event Date"));
+        add(new JTextField());
+        add(new JLabel("Event Time"));
+        add(new JTextField());
+        add(new JButton("Add Event"));
+        setVisible(true);
+    }
 }
