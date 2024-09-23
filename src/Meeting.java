@@ -24,28 +24,14 @@ public class Meeting extends Event implements Completable {
 		return endDateTime;
 	}
 
-<<<<<<< HEAD
     //in minutes
 	public int getDuration() {
 	    long mins = ChronoUnit.MINUTES.between(getDateTime(), getEndDateTime());
-        long hours = ChronoUnit.HOURS.between(getDateTime(), getEndDateTime());
-    
-        if (hours == 1) {
-            hours = 0;
-        }
 
-        int total = (int) mins + (int) hours * 60;
-
-        return total;
+        return (int) mins;
     }
-=======
-	//returns minutes
-	public int getDuration() {
-		return ((endDateTime.getHour()*60 - getDateTime().getHour()*60) + (endDateTime.getMinute() - getDateTime().getMinute()));
-	}
->>>>>>> refs/remotes/origin/main
-
-	public String getLocation() {
+	
+    public String getLocation() {
 		return location;
 	}
 

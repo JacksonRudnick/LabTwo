@@ -8,7 +8,7 @@ public class EventPlanner {
 		EventPanel classPanel = new EventPanel(new Deadline("Class", time));
 		eventListPanel.addEventPanel(classPanel);
 
-		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", time, time.plusHours(1), "School"));
+		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", time, time.plusHours(2), "School"));
 		eventListPanel.addEventPanel(meetingPanel);
 	}
 
