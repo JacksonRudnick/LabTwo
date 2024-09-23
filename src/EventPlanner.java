@@ -3,9 +3,13 @@ import java.awt.*;
 import java.time.LocalDateTime;
 
 public class EventPlanner {
-	public static void addDefaultEvents(EventPanel events) {
+	public static void addDefaultEvents(EventListPanel eventListPanel) {
+		LocalDateTime time = LocalDateTime.now();
+		EventPanel classPanel = new EventPanel(new Deadline("Class", time));
+		eventListPanel.addEventPanel(classPanel);
 
-
+		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", time, time.plusHours(1), "School"));
+		eventListPanel.addEventPanel(meetingPanel);
 	}
 
 	public static void main(String[] args) {
@@ -16,13 +20,8 @@ public class EventPlanner {
 		frame.setVisible(true);
 
 		EventListPanel eventListPanel = new EventListPanel(frame);
-
-		LocalDateTime time = LocalDateTime.now();
-		EventPanel classPanel = new EventPanel(new Deadline("Class", time));
-		eventListPanel.addEventPanel(classPanel);
-
-		EventPanel meetingPanel = new EventPanel(new Meeting("Meeting", time, time.plusHours(1), "School"));
-		eventListPanel.addEventPanel(meetingPanel);
+    
+        addDefaultEvents(eventListPanel);
 
 		frame.add(eventListPanel);
 		frame.revalidate();

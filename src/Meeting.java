@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class Meeting extends Event implements Completable {
 	private LocalDateTime endDateTime;
@@ -23,9 +24,19 @@ public class Meeting extends Event implements Completable {
 		return endDateTime;
 	}
 
+    //in minutes
 	public int getDuration() {
-		return (int) (endDateTime.toString() - getDateTime().toString());
-	}
+	    long mins = ChronoUnit.MINUTES.between(getDateTime(), getEndDateTime());
+        long hours = ChronoUnit.HOURS.between(getDateTime(), getEndDateTime());
+    
+        if (hours == 1) {
+            hours = 0;
+        }
+
+        int total = (int) mins + (int) hours * 60;
+
+        return total;
+    }
 
 	public String getLocation() {
 		return location;
@@ -40,6 +51,6 @@ public class Meeting extends Event implements Completable {
 	}
 
 	public String toString() {
-		return getName() + " - " + getDateTime() + " - " + getDuration()/60000 + " - " + getEndDateTime() + " - " + getLocation() + " - " + isComplete();
+		return getName() + " - " + getDateTime() + " - " + getDuration() + " - " + getEndDateTime() + " - " + getLocation() + " - " + isComplete();
 	}
 }
