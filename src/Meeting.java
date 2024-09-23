@@ -24,6 +24,7 @@ public class Meeting extends Event implements Completable {
 		return endDateTime;
 	}
 
+<<<<<<< HEAD
     //in minutes
 	public int getDuration() {
 	    long mins = ChronoUnit.MINUTES.between(getDateTime(), getEndDateTime());
@@ -37,6 +38,12 @@ public class Meeting extends Event implements Completable {
 
         return total;
     }
+=======
+	//returns minutes
+	public int getDuration() {
+		return ((endDateTime.getHour()*60 - getDateTime().getHour()*60) + (endDateTime.getMinute() - getDateTime().getMinute()));
+	}
+>>>>>>> refs/remotes/origin/main
 
 	public String getLocation() {
 		return location;
