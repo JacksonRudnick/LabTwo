@@ -41,7 +41,7 @@ public class EventListPanel extends JPanel {
 		addEventButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				addEventModal = new AddEventModal();
+				addEventModal = new AddEventModal(EventListPanel.this);
 			}
 		});
 		controlPanel.add(addEventButton);
@@ -57,7 +57,7 @@ public class EventListPanel extends JPanel {
 	}
 
 	public void addEventPanel(EventPanel eventPanel) {
-		events.add(eventPanel.getEvent());
+        events.add(eventPanel.getEvent());
 
 		displayPanel.add(eventPanel);
 	}
