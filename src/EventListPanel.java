@@ -11,7 +11,9 @@ public class EventListPanel extends JPanel {
 	JPanel displayPanel;
 	JPanel alignmentPanel;
 	JComboBox eventComboBox;
-	JCheckBox filterDisplay;
+	JCheckBox completedFilter;
+    JCheckBox deadlineFilter;
+    JCheckBox meetingFilter;
 	JButton addEventButton;
 	AddEventModal addEventModal;
 
@@ -46,15 +48,56 @@ public class EventListPanel extends JPanel {
 		});
 		controlPanel.add(addEventButton);
 
-		eventComboBox = new JComboBox();
-		eventComboBox.setMinimumSize(new Dimension(100, -1));
+		eventComboBox = new JComboBox(new String[] {"Name", "Date", "Name: reverse", "Date: reverse"});
 		controlPanel.add(eventComboBox);
 
-		filterDisplay = new JCheckBox("Filter Display");
-		controlPanel.add(filterDisplay);
+        eventComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = eventComboBox.getSelectedItem().toString();
+
+                switch (selected) {
+                    case "Name":
+                        events.sort((a, b) -> a.getName().compareTo(b.getName()));
+                        break;
+                    case "Date":
+                        events.sort((a, b) -> a.getDateTime().compareTo(b.getDateTime()));
+                        break;
+                    case "Name: reverse":
+                        events.sort((a, b) -> b.getName().compareTo(a.getName()));
+                        break;
+                    case "Date: reverse":
+                        events.sort((a, b) -> b.getDateTime().compareTo(a.getDateTime()));
+                        break;
+                }
+
+                refreshDisplay();
+            }
+        });
+
+		completedFilter = new JCheckBox("Remove Completed");
+		controlPanel.add(completedFilter);
+
+        deadlineFilter = new JCheckBox("Deadlines only");
+        controlPanel.add(deadlineFilter);
+
+        meetingFilter = new JCheckBox("Meetings only");
+        controlPanel.add(meetingFilter);
 
 		add(controlPanel, BorderLayout.NORTH);
 	}
+
+    public void refreshDisplay() {
+        displayPanel.removeAll();
+
+        for (Event event : events) {
+            EventPanel eventPanel = new EventPanel(event);
+            displayPanel.add(eventPanel);
+        }
+
+        displayPanel.revalidate();
+        displayPanel.repaint();
+    }
 
 	public void addEventPanel(EventPanel eventPanel) {
         events.add(eventPanel.getEvent());

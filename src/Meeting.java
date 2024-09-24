@@ -1,6 +1,10 @@
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+interface sortable {
+    public Event sort(Event e);
+}
+
 public class Meeting extends Event implements Completable {
 	private LocalDateTime endDateTime;
 	private String location;
@@ -44,6 +48,6 @@ public class Meeting extends Event implements Completable {
 	}
 
 	public String toString() {
-		return getName() + " - " + getDateTime() + " - " + getDuration() + " - " + getEndDateTime() + " - " + getLocation() + " - " + isComplete();
+		return getName() + " - " + getDateTime() + " - " + getDuration() + " - " + getLocation() + " - " + isComplete();
 	}
 }
