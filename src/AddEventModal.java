@@ -63,16 +63,16 @@ public class AddEventModal extends JDialog {
         if (setup == 1) {
             displayPanel.add(new JLabel("Meeting Name"));
             displayPanel.add(eventName);
-            displayPanel.add(new JLabel("Meeting Time\nyyyy-MM-ddThh:mm:ss"));
+            displayPanel.add(new JLabel("Meeting Time yyyy-MM-ddThh:mm:ss"));
             displayPanel.add(eventTime);
-            displayPanel.add(new JLabel("Meeting End Time\nyyyy-MM-ddThh:mm:ss"));
+            displayPanel.add(new JLabel("Meeting End Time yyyy-MM-ddThh:mm:ss"));
             displayPanel.add(eventEndTime);
             displayPanel.add(new JLabel("Meeting Location"));
             displayPanel.add(eventLocation);
         } else if (setup == 2) { //deadline setup
             displayPanel.add(new JLabel("Deadline Name"));
             displayPanel.add(eventName);
-            displayPanel.add(new JLabel("Deadline Time\nyyyy-MM-ddThh:mm:ss"));
+            displayPanel.add(new JLabel("Deadline Time yyyy-MM-ddThh:mm:ss"));
             displayPanel.add(eventTime);
         }
 
