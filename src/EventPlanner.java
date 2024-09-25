@@ -19,7 +19,7 @@ public class EventPlanner {
         //create frame
 		JFrame frame = new JFrame("Event Planner");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(new Dimension(600, 300));
+		frame.setSize(new Dimension(700, 300));
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
