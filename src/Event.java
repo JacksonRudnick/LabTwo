@@ -1,9 +1,12 @@
+//imports
 import java.time.LocalDateTime;
 
+//abstract class Event
 public abstract class Event implements Comparable<Event> {
 	private String name;
 	private LocalDateTime dateTime;
 
+    //constructor
 	public Event(String name, LocalDateTime dateTime) {
 		this.name = name;
 		this.dateTime = dateTime;
@@ -25,13 +28,17 @@ public abstract class Event implements Comparable<Event> {
 		this.name = name;
 	}
 
+    //compareTo method
 	public int compareTo(Event e) {
 		return dateTime.compareTo(e.getDateTime());
 	}
 
-	public abstract void complete();
-
+    //toString displays name and date
 	public String toString() {
 		return getName() + " - " + getDateTime();
 	}
+
+	public abstract void complete();
+
+    public abstract boolean isComplete();
 }

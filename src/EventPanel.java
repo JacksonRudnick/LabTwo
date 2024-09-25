@@ -1,3 +1,4 @@
+//imports
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,16 +9,21 @@ public class EventPanel extends JPanel {
 	private JButton completeButton;
 	private JLabel eventLabel;
 
+    //constructor
 	EventPanel(Event e) {
 		event = e;
 
+        //layout
 		this.setLayout(new BorderLayout());
 
+        //label for event
 		eventLabel = new JLabel();
 		eventLabel.setText(event.toString());
 		this.add(eventLabel, BorderLayout.CENTER);
 
+        //complete button
 		completeButton = new JButton("Complete");
+        //action listener for complete button
 		completeButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -31,10 +37,5 @@ public class EventPanel extends JPanel {
 
 	public Event getEvent() {
 		return event;
-	}
-
-	//extra function??
-	public void updateUrgency() {
-
 	}
 }

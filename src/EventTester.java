@@ -1,22 +1,21 @@
-import java.util.Date;
+//imports
+import java.time.LocalDateTime;
 
 public class EventTester {
-	/*public static void testMeeting() {
-		Date date = new Date();
-		date.setHours(date.getHours() + 1);
-		Date date2 = new Date(date.getTime());
-		date2.setHours(date2.getHours() + 1);
+	public static void testMeeting() {
+        LocalDateTime date = LocalDateTime.now();       
+        LocalDateTime date2 = date.plusHours(1);
 
 		Meeting meeting = new Meeting("Class", date, date2, "MCS 219");
 		System.out.println(meeting.isComplete());
 		System.out.println(meeting.getDateTime());
 		System.out.println(meeting.getEndDateTime());
-		System.out.println(meeting.getDuration()/60000);
+		System.out.println(meeting.getDuration());
 		System.out.println(meeting.getName());
 		System.out.println(meeting.getLocation());
 
-		date.setHours(date.getHours() + 1);
-		date2.setHours(date.getHours() + 2);
+        date = date.plusHours(1);
+        date2 = date.plusHours(1);
 
 		meeting.complete();
 		meeting.setLocation("MCS 1000");
@@ -27,14 +26,13 @@ public class EventTester {
 		System.out.println(meeting.isComplete());
 		System.out.println(meeting.getDateTime());
 		System.out.println(meeting.getEndDateTime());
-		System.out.println(meeting.getDuration()/60000);
+		System.out.println(meeting.getDuration());
 		System.out.println(meeting.getName());
 		System.out.println(meeting.getLocation());
 	}
 
 	public static void testDeadline() {
-		Date date = new Date();
-		date.setHours(date.getHours() + 1);
+        LocalDateTime date = LocalDateTime.now();
 
 		Deadline deadline = new Deadline("Homework", date);
 
@@ -42,7 +40,7 @@ public class EventTester {
 		System.out.println(deadline.getDateTime());
 		System.out.println(deadline.getName());
 
-		date.setHours(date.getHours() + 1);
+        date = date.plusHours(1);
 
 		deadline.complete();
 		deadline.setDateTime(date);
@@ -59,5 +57,5 @@ public class EventTester {
 
 		System.out.println("\nTEST DEADLINE :: ");
 		testDeadline();
-	}*/
+	}
 }

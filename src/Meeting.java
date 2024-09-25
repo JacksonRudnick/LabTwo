@@ -1,15 +1,14 @@
+//imports
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-interface sortable {
-    public Event sort(Event e);
-}
-
 public class Meeting extends Event implements Completable {
-	private LocalDateTime endDateTime;
+    //instance variables
+    private LocalDateTime endDateTime;
 	private String location;
 	private boolean complete;
 
+    //constructor
 	public Meeting(String name, LocalDateTime startDateTime, LocalDateTime endDateTime, String location) {
 		super(name, startDateTime);
 		this.endDateTime = endDateTime;
@@ -46,7 +45,8 @@ public class Meeting extends Event implements Completable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
+    
+    //toString displays name, date, duration, location, and completion status
 	public String toString() {
 		return getName() + " - " + getDateTime() + " - " + getDuration() + " - " + getLocation() + " - " + isComplete();
 	}
