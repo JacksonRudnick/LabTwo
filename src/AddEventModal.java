@@ -59,6 +59,8 @@ public class AddEventModal extends JDialog {
 
     //setup modal based on event type
     void setupModal() {
+        EventFactory eventFactory = new EventFactory();
+
         //meeting setup
         if (setup == 1) {
             displayPanel.add(new JLabel("Meeting Name"));
@@ -86,9 +88,9 @@ public class AddEventModal extends JDialog {
         //action listener for submit button
         submitButton.addActionListener(e -> {
             if (setup == 1) {
-                event = new Meeting(eventName.getText(), LocalDateTime.parse(eventTime.getText()), LocalDateTime.parse(eventEndTime.getText()), eventLocation.getText());
+                event = eventFactory.createMeeting(eventName.getText(), LocalDateTime.parse(eventTime.getText()), LocalDateTime.parse(eventEndTime.getText()), eventLocation.getText());
             } else if (setup == 2) {
-                event = new Deadline(eventName.getText(), LocalDateTime.parse(eventTime.getText()));
+                event = eventFactory.createDeadline(eventName.getText(), LocalDateTime.parse(eventTime.getText()));
             }
 
             EventPanel eventPanel = new EventPanel(event);

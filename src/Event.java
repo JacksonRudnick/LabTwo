@@ -38,7 +38,7 @@ public abstract class Event implements Comparable<Event> {
 		return getName() + " - " + getDateTime();
 	}
 
-	public abstract void complete();
-
     public abstract boolean isComplete();
+
+	public abstract void complete();
 }
